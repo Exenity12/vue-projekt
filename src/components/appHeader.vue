@@ -1,11 +1,11 @@
 <template>
   <div>
     <li>
-      <span v-bind:class="{done: headitem.completed}">
+      <span v-bind:class="{done: headitemLocal.completed}">
         <input type="checkbox" 
         v-on:change="markCompleted">
-        <strong>{{headitem.id}}</strong>
-        {{headitem.title}}
+        <strong>{{headitemLocal.id}}</strong>
+        {{headitemLocal.title}}
       </span>
       <button>&times;</button>
     </li>
@@ -15,9 +15,14 @@
 <script>
 export default {
   props: ['headitem'],
+  data() {
+    return {
+      headitemLocal: this.headitem,
+    };
+  },
   methods: {
         markCompleted() {
-          this.headitem.completed = !this.headitem.completed
+          this.headitemLocal.completed = !this.headitemLocal.completed
         },
     },
 }
