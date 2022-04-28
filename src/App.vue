@@ -15,7 +15,7 @@ export default {
     return {
       header: [
         {id: 1, title: 'первый', completed: false},
-        {id: 2, title: 'Bторой', completed: true},
+        {id: 2, title: 'Bторой', completed: false},
         {id: 3, title: 'третий', completed: false},
       ]
     }

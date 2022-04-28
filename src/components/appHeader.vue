@@ -3,10 +3,9 @@
     <li>
       <span v-bind:class="{done: headitem.completed}">
         <input type="checkbox" 
-        @change="$emit(markCompleted)">
+        v-on:change="markCompleted">
         <strong>{{headitem.id}}</strong>
         {{headitem.title}}
-        {{headitem.completed}}
       </span>
       <button>&times;</button>
     </li>
@@ -15,12 +14,12 @@
 
 <script>
 export default {
-  props: {
-    headitem: {
-      type: Object,
-      required: true,
-    }
-  },
+  props: ['headitem'],
+  methods: {
+        markCompleted() {
+          this.headitem.completed = !this.headitem.completed
+        },
+    },
 }
 </script>
 
