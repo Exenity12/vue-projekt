@@ -1,9 +1,16 @@
 <template>
-  <div id="app">
-    <hr>
-    <router-view />
+  <div>
+    <addNewItem
+      v-on:add-item="addItem"
+    />
+    <appWindow
+      v-bind:header="header"
+      v-on:remove-item="removeItem"
+    />
   </div>
 </template>
+
+
 
 <script>
 import appWindow from "@/components/appWindow"
@@ -33,6 +40,3 @@ export default {
   },
 }
 </script>
-
-<style>
-</style>

@@ -4,27 +4,27 @@
       <span v-bind:class="{done: headitemLocal.completed}">
         <input type="checkbox" 
         v-on:change="markCompleted">
-        <strong>{{headitemLocal.id}}</strong>
+        <strong>{{indexitem + 1}}</strong>
         {{headitemLocal.title}}
       </span>
-      <button>&times;</button>
+      <button v-on:click="$emit('remove-item', headitemLocal.id)">&times;</button>
     </li>
   </div>
 </template>
-
+    
 <script>
 export default {
-  props: ['headitem'],
+  props: ['headitem', 'indexitem'],
   data() {
     return {
       headitemLocal: this.headitem,
     };
   },
   methods: {
-        markCompleted() {
-          this.headitemLocal.completed = !this.headitemLocal.completed
-        },
+    markCompleted() {
+      this.headitemLocal.completed = !this.headitemLocal.completed
     },
+  },
 }
 </script>
 
