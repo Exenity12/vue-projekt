@@ -13,7 +13,7 @@
 
 
 <script>
-import appHeader from "@/components/appHeader"
+import appHeader from "./AppHeader"
 
 export default {
   props:['header'],

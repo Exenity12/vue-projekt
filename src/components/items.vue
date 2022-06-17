@@ -1,20 +1,22 @@
 <template>
   <div>
     <addNewItem
-      v-on:add-item="addItem"
+        v-on:add-item="addItem"
     />
     <appWindow
-      v-bind:header="header"
-      v-on:remove-item="removeItem"
+        v-bind:header="header"
+        v-on:remove-item="removeItem"
+        v-if='header.length'
     />
+    <div v-else>No array</div>
   </div>
 </template>
 
 
 
 <script>
-import appWindow from "@/components/appWindow"
-import addNewItem from "@/components/addNewItem"
+import appWindow from "./AppWindow"
+import addNewItem from './AppNewItem'
 
 export default {
   name: 'App',
@@ -36,6 +38,7 @@ export default {
     },
     addItem(item){
       this.header.push(item);
+      console.log(this.header);
     }
   },
 }
